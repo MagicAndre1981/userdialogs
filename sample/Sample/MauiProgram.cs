@@ -1,5 +1,4 @@
 ﻿using Acr.UserDialogs;
-using Microsoft.Maui.LifecycleEvents;
 
 namespace Sample;
 
@@ -11,18 +10,16 @@ public static class MauiProgram
         var builder = MauiApp.CreateBuilder();
         builder
             .UseMauiApp<App>()
+            .UseUserDialogs()
             .ConfigureFonts(fonts =>
             {
                 fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                 fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
-            })
-            .ConfigureLifecycleEvents(events =>
-            {
-#if ANDROID
-                events.AddAndroid(android => android.OnApplicationCreate(app => UserDialogs.Init(app)));
-#endif
             });
 
+#if ANDROID
+        Acr.UserDialogs.UserDialogs.Init(() => Platform.CurrentActivity);
+#endif
         return builder.Build();
     }
 }
