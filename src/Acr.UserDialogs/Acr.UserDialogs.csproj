@@ -29,7 +29,7 @@
         <Compile Include="Platforms\macOS\**\*.cs" />
     </ItemGroup>
 
-  <!--
+    <!--
     <ItemGroup Condition="$(TargetFramework.Contains('windows'))">
         <Compile Include="Platforms\Shared\**\*.cs" />
         <Compile Include="Platforms\Windows\**\*.cs" />
