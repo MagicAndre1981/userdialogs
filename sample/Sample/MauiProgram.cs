@@ -1,6 +1,7 @@
 ﻿using Acr.UserDialogs;
+using Samples;
 
-namespace Sample;
+namespace Samples;
 
 
 public static class MauiProgram
