@@ -1,31 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
-        <TargetFrameworks>net8.0;net8.0-ios;net8.0-android;net8.0-maccatalyst;net8.0-macos</TargetFrameworks>
-        <TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net8.0-windows</TargetFrameworks>
-        <!--<TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net8.0-windows10.0.19041.0</TargetFrameworks>-->
-        <PackageProjectUrl>https://github.com/aritchie/userdialogs</PackageProjectUrl>
+        <TargetFrameworks>net8.0;net8.0-ios;net8.0-android;net8.0-maccatalyst</TargetFrameworks>
         <Product>$(AssemblyName) ($(TargetFramework))</Product>
-        <Authors>Allan Ritchie</Authors>
-        <Description>A cross platform library that allows you to call for standard user dialogs from a shared/portable library. Supports Android, iOS, and UWP</Description>
-        <PackageTags>ios android xamarin xam.pcl dialogs plugin</PackageTags>
-        <PackageReleaseNotes>https://github.com/aritchie/userdialogs/raw/master/ChangeLog.md</PackageReleaseNotes>
-        <PackageLicenseExpression>MIT</PackageLicenseExpression>
-        <LangVersion>latest</LangVersion>
-        <NoWarn>$(NoWarn);1591;1701;1591;1702;1705;VSX1000;NU1603</NoWarn>
-        <RepositoryUrl>https://github.com/aritchie/userdialogs</RepositoryUrl>
-        <RepositoryType>git</RepositoryType>
-        <PackageIcon>icon.png</PackageIcon>
-        <PackageReadmeFile>readme.md</PackageReadmeFile>
-    </PropertyGroup>
-
-    <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
-        <IncludeSource>True</IncludeSource>
-        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-        <GenerateDocumentationFile>true</GenerateDocumentationFile>
-        <SymbolPackageFormat>snupkg</SymbolPackageFormat>
-        <PublishRepositoryUrl>True</PublishRepositoryUrl>
-        <EmbedUntrackedSources>True</EmbedUntrackedSources>
-        <ContinuousIntegrationBuild Condition="'$(GITHUB_ACTIONS)' == 'true' OR '$(CI)' == 'true'">true</ContinuousIntegrationBuild>
     </PropertyGroup>
 
     <ItemGroup>
@@ -33,11 +9,6 @@
         <None Include="$(SolutionDir)readme.md" Pack="true" PackagePath="readme.md" />
         <None Include="Platforms\**\*.*" />
         <Compile Remove="Platforms\**\*.*" />
-        <PackageReference Include="Microsoft.SourceLink.GitHub" Version="8.0.0" PrivateAssets="All" />
-        <PackageReference Include="Nerdbank.GitVersioning" Version="3.6.133">
-            <PrivateAssets>all</PrivateAssets>
-            <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
-        </PackageReference>
     </ItemGroup>
 
     <ItemGroup Condition="$(TargetFramework.Contains('android'))">
@@ -63,7 +34,6 @@
         <Compile Include="Platforms\Windows\**\*.cs" />
         <Page Include="Platforms\Windows\**\*.xaml" SubType="Designer" Generator="MSBuild:Compile" />
         <Compile Update="Platforms\Windows\**\*.xaml.cs" SubType="Code" DependentUpon="%(Filename)" />
-      
         <!--
         <PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.22621.756" />
         <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.4.240211001" />

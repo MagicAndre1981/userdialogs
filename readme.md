@@ -23,23 +23,21 @@ A cross platform library that allows you to call for standard user dialogs from 
 
 ## Support Platforms
 
-v7.x Supports
-* iOS 8+
-* Android
-* Universal Windows Platform (Win10/UWP)
-* NET Standard 2.0
-
-v8.x Supports ONLY .NET 6 target
-* .NET for Android (major target 12)
-* .NET for iOS
-* .NET for MacCatalyst
-
 v9.x Supports ONLY .NET 8 target
 * .NET for Android
 * .NET for iOS
 * .NET for MacCatalyst
 
 ## Setup
+
+### MAUI Users
+Install Acr.UserDialogs.Maui from NuGet
+
+In your MauiProgram.cs, add the following
+
+```csharp
+
+```
 
 To use, simply reference the nuget package in each of your platform projects.  If you are getting issues with System.Drawing.Color, please make sure you are using the latest version of Xamarin
 

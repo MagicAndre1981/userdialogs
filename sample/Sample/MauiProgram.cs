@@ -1,4 +1,6 @@
-﻿namespace Samples;
+﻿using Acr.UserDialogs;
+
+namespace Sample;
 
 
 public static class MauiProgram
@@ -8,6 +10,7 @@ public static class MauiProgram
         var builder = MauiApp.CreateBuilder();
         builder
             .UseMauiApp<App>()
+            .UseUserDialogs()
             .ConfigureFonts(fonts =>
             {
                 fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
