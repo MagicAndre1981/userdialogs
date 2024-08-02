@@ -36,7 +36,28 @@ Install Acr.UserDialogs.Maui from NuGet
 In your MauiProgram.cs, add the following
 
 ```csharp
+using Acr.UserDialogs;
 
+namespace Samples;
+
+
+public static class MauiProgram
+{
+    public static MauiApp CreateMauiApp()
+    {
+        var builder = MauiApp.CreateBuilder();
+        builder
+            .UseMauiApp<App>()
+            .UseUserDialogs()
+            .ConfigureFonts(fonts =>
+            {
+                fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
+                fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
+            });
+        
+        return builder.Build();
+    }
+}
 ```
 
 To use, simply reference the nuget package in each of your platform projects.  If you are getting issues with System.Drawing.Color, please make sure you are using the latest version of Xamarin

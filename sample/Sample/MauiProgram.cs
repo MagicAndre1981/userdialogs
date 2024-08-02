@@ -16,10 +16,7 @@ public static class MauiProgram
                 fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                 fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
             });
-
-#if ANDROID
-        Acr.UserDialogs.UserDialogs.Init(() => Platform.CurrentActivity);
-#endif
+        
         return builder.Build();
     }
 }
