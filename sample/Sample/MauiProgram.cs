@@ -1,5 +1,4 @@
 ﻿using Acr.UserDialogs;
-using Samples;
 
 namespace Samples;
 
